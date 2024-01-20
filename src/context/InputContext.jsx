@@ -10,6 +10,9 @@ export const inputReducer = (state, action) => {
       return { ...state, input: state.input + action.payload };
     case 'INCREASE_MISTAKES':
       return { ...state, mistakes: state.mistakes + 1 };
+
+    case 'SET_SECONDS':
+      return { ...state, seconds: action.payload };
     case 'START_GAME':
       return { ...state, isGameStarted: true, isGameEnded: false };
     case 'END_GAME':
@@ -24,6 +27,7 @@ export const InputContextProvider = ({ children }) => {
     currentLetter: null,
     input: '',
     mistakes: 0,
+    seconds: 0,
     isGameStarted: false,
     isGameEnded: false,
   });

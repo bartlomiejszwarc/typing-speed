@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import './LettersInput.css';
 
 function LetterInput() {
-  const { input, mistakes, dispatch, isGameEnded, isGameStarted } = useInputContext();
+  const { input, dispatch, isGameEnded, isGameStarted } = useInputContext();
 
   useEffect(() => {
     if (input.length > 0 && !isGameEnded && !isGameStarted) {

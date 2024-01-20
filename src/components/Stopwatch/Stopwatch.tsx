@@ -1,6 +1,7 @@
 import { useInputContext } from './../../hooks/useInputContext';
 import CachedIcon from '@mui/icons-material/Cached';
 import { useMeasureTime } from './../../hooks/useMeasureTime';
+import { useEffect } from 'react';
 import './Stopwatch.css';
 function Stopwatch() {
   const { measureTime, seconds, minutes, milliseconds } = useMeasureTime();
@@ -11,6 +12,9 @@ function Stopwatch() {
   const handleOnClick = () => {
     dispatch({ type: 'RESET' });
   };
+  useEffect(() => {
+    dispatch({ type: 'SET_SECONDS', payload: seconds });
+  }, [seconds]);
 
   return (
     <div className='timer-wrapper'>
