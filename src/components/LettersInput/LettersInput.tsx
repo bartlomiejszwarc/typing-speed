@@ -16,9 +16,14 @@ function LetterInput() {
     dispatch({ type: 'SET_CURRENT_LETTER', payload: e.target.value[e.target.value.length - 1] });
   };
   return (
-    <div>
-      <input onChange={(e) => handleInputOnChange(e)} value={input} className='letters-input' />
-      <p>Mistakes: {mistakes}</p>
+    <div style={{ marginBottom: '4rem' }}>
+      <input
+        onChange={(e) => handleInputOnChange(e)}
+        value={input}
+        className='letters-input'
+        autoFocus
+        placeholder='Type here'
+      />
     </div>
   );
 }

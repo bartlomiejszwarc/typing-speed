@@ -1,8 +1,16 @@
 .letters-input {
-  color: white;
-  background-color: transparent;
+  color: black;
+  background-color: #e5e5e5;
+  margin-top: 1rem;
   outline: none;
   border: none;
-  border-bottom: 1px solid black;
-  width: 100%;
+  width: calc(50vw - 2rem);
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  padding: 0 1rem 0 1rem;
+}
+
+.letters-input::placeholder {
+  letter-spacing: normal;
+  font-size: 1.75rem;
 }
