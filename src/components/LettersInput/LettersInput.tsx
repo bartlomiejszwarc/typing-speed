@@ -2,6 +2,7 @@ import { ChangeEvent } from 'react';
 import { useInputContext } from '../../hooks/useInputContext';
 import { useEffect } from 'react';
 import './LettersInput.css';
+import { TextareaAutosize } from '@mui/base/TextareaAutosize';
 
 function LetterInput() {
   const { input, dispatch, isGameEnded, isGameStarted } = useInputContext();
@@ -17,7 +18,9 @@ function LetterInput() {
   };
   return (
     <div style={{ marginBottom: '4rem' }}>
-      <input
+      <TextareaAutosize
+        minRows={3}
+        spellCheck={false}
         onChange={(e) => handleInputOnChange(e)}
         value={input}
         className='letters-input'

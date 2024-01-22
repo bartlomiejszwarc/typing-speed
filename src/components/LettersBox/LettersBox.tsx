@@ -1,8 +1,11 @@
 import './LettersBox.css';
 import { useInputContext } from '../../hooks/useInputContext';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 function LettersBox() {
   const { currentLetter, input, dispatch } = useInputContext();
+  const [correctLetters, setCorrectLetters] = useState<string[]>([]);
+  const [currentLetterNumber, setCurrentLetterNumber] = useState<number>(0);
   useEffect(() => {
     if (currentLetter?.length > 0 && currentLetter === letters[input.length])
       dispatch({ type: 'ADD_LETTER_TO_INPUT', payload: currentLetter });
@@ -45,11 +48,38 @@ function LettersBox() {
     'z',
   ];
 
-  // const letters: Array<string> = ['a', 'b', 'c'];
+  //const letters: Array<string> = ['a', 'b', 'c'];
+
+  const checkLetter = (index: number) => {
+    if (currentLetter && currentLetterNumber === index) {
+      if (currentLetter === letters[index]) {
+        correctLetters.push(currentLetter);
+        return 'correct';
+      }
+      if (currentLetter !== letters[currentLetterNumber - 1]) {
+        return 'mistake';
+      }
+    }
+    return 'default';
+  };
+
+  useEffect(() => {
+    setCurrentLetterNumber(input?.length);
+  }, [input, currentLetter]);
+
   return (
     <div className='letters-container'>
       {letters.map((letter, index) => (
-        <p className='letter-default' key={index}>
+        <p
+          className={`${
+            checkLetter(index) === 'correct' || correctLetters.includes(letter)
+              ? 'letter-correct'
+              : checkLetter(index) === 'mistake'
+              ? 'letter-mistake'
+              : 'letter-default'
+          }`}
+          key={index}
+        >
           {letter}
         </p>
       ))}
