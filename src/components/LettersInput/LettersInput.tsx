@@ -14,7 +14,8 @@ function LetterInput() {
   }, [input]);
 
   const handleInputOnChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    dispatch({ type: 'SET_CURRENT_LETTER', payload: e.target.value[e.target.value.length - 1] });
+    if (isGameEnded) dispatch({ type: 'RESET' });
+    dispatch({ type: 'SET_CURRENT_LETTER', payload: e.target.value[e.target.value.length - 1].toLowerCase() });
   };
   return (
     <div style={{ opacity: 0 }}>

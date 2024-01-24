@@ -1,11 +1,15 @@
 import './Statistics.css';
+import { SvgIconProps } from '@mui/material';
+import { ReactElement } from 'react';
 interface StatisticsProps {
   title: string | null;
   value: number | null;
+  icon: ReactElement<SvgIconProps> | null;
 }
-function StatisticsCard({ title, value }: StatisticsProps) {
+function StatisticsCard({ title, value, icon }: StatisticsProps) {
   return (
     <div className='statistics-card'>
+      {icon}
       <span className='statistics-title'>{title}</span>
       {value && <span className='statistics-value'>{Math.round(value * 100) / 100}</span>}
       {!value && <span className='statistics-value'>--</span>}

@@ -44,6 +44,11 @@
   outline: none;
   transform: translate(50%, 50%);
   cursor: pointer;
+  transition: transform 300ms ease-in-out;
+}
+
+.restart-button:hover {
+  transform: translate(50%, 50%) rotate(-180deg);
 }
 
 .timer-wrapper {

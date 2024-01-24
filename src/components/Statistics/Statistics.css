@@ -3,7 +3,7 @@
 }
 
 .statistics-card {
-  width: 10rem;
+  width: 15rem;
   height: 10rem;
   border-radius: 10px;
   background-color: #e5e5e5;
@@ -19,7 +19,13 @@
 }
 
 .statistics-title {
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   color: #737373;
+  font-weight: 100;
+}
+
+.icon {
+  width: 30%;
+  aspect-ratio: 1/1;
 }
