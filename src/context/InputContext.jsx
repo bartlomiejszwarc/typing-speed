@@ -13,7 +13,7 @@ export const inputReducer = (state, action) => {
     case 'SET_SECONDS':
       return { ...state, seconds: action.payload };
     case 'START_GAME':
-      return { ...state, isGameStarted: true, isGameEnded: false, currentLetter: null, mistakes: 0, seconds: 0 };
+      return { ...state, isGameStarted: true, isGameEnded: false, mistakes: 0, seconds: 0 };
     case 'END_GAME':
       return { ...state, isGameStarted: false, isGameEnded: true };
     case 'RESET':

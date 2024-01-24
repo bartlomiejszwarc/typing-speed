@@ -9,7 +9,7 @@ interface StatisticsProps {
 function StatisticsCard({ title, value, icon }: StatisticsProps) {
   return (
     <div className='statistics-card'>
-      {icon}
+      <div>{icon}</div>
       <span className='statistics-title'>{title}</span>
       {value && <span className='statistics-value'>{Math.round(value * 100) / 100}</span>}
       {!value && <span className='statistics-value'>--</span>}

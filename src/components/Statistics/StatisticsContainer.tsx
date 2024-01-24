@@ -4,8 +4,7 @@ import { useInputContext } from '../../hooks/useInputContext';
 import { useState, useEffect } from 'react';
 import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
 import SpeedIcon from '@mui/icons-material/Speed';
-import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
-
+import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 function StatisticsContainer() {
   const { mistakes, input, seconds } = useInputContext();
   const [accuracy, setAccuracy] = useState<number>(0);
@@ -30,11 +29,7 @@ function StatisticsContainer() {
         value={mistakes || null}
         icon={<SentimentDissatisfiedIcon fontSize={iconSize} />}
       />
-      <StatisticsCard
-        title='Accuracy (%)'
-        value={accuracy * 100 || null}
-        icon={<PrecisionManufacturingIcon fontSize={iconSize} />}
-      />
+      <StatisticsCard title='Accuracy (%)' value={accuracy * 100 || null} icon={<GpsFixedIcon fontSize={iconSize} />} />
       <StatisticsCard title='CPM' value={Math.round(charsPerMinute) || null} icon={<SpeedIcon fontSize={iconSize} />} />
     </div>
   );

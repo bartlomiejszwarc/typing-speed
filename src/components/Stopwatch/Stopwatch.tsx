@@ -1,16 +1,22 @@
 import { useInputContext } from './../../hooks/useInputContext';
 import CachedIcon from '@mui/icons-material/Cached';
 import { useMeasureTime } from './../../hooks/useMeasureTime';
-import { useEffect } from 'react';
-import './Stopwatch.css';
+import { useEffect, useState } from 'react';
+import './Stopwatch.scss';
 function Stopwatch() {
   const { measureTime, seconds, minutes, milliseconds } = useMeasureTime();
   const { dispatch } = useInputContext();
+  const [buttonStyle, setButtonStyle] = useState<string>('restart-button');
 
   measureTime();
 
   const handleOnClick = () => {
+    setButtonStyle('restart-button-rotate');
+
     dispatch({ type: 'RESET' });
+    setTimeout(() => {
+      setButtonStyle('restart-button');
+    }, 1000);
   };
   useEffect(() => {
     dispatch({ type: 'SET_SECONDS', payload: seconds });
@@ -29,11 +35,14 @@ function Stopwatch() {
             <span className='timer-field-title'>seconds</span>
           </div>
           <div className='timer-field'>
-            <span className='timer-field-time'>{Math.round(milliseconds)}</span>
+            <span className='timer-field-time'>
+              {Array.from({ length: 3 - milliseconds.toString().length }, () => 0)}
+              {Math.round(milliseconds)}
+            </span>
             <span className='timer-field-title'>milliseconds</span>
           </div>
         </div>
-        <div className='restart-button' onClick={handleOnClick}>
+        <div className={`${buttonStyle}`} onClick={handleOnClick}>
           <CachedIcon sx={{ color: 'white', fontSize: 36 }} />
         </div>
       </div>

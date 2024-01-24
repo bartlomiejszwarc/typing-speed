@@ -67,29 +67,35 @@ function LettersBox() {
       if (currentLetter !== letters[currentLetterNumber - 1] && isGameStarted) {
         return 'mistake';
       }
+      if (currentLetterNumber === input.length) {
+        return 'active';
+      }
     }
-    return 'default';
+    //return 'default';
   };
 
   useEffect(() => {
-    setCurrentLetterNumber(input?.length);
-  }, [input, currentLetter]);
+    if (input?.length > 0) setCurrentLetterNumber(input?.length);
+    else setCurrentLetterNumber(0);
+  }, [input]);
 
   return (
     <div className='letters-container'>
       {letters.map((letter, index) => (
-        <p
+        <div
           className={`${
             checkLetter(index) === 'correct' || correctLetters.includes(letter)
               ? 'letter-correct'
               : checkLetter(index) === 'mistake'
               ? 'letter-mistake'
+              : checkLetter(index) === 'active'
+              ? 'letter-active'
               : 'letter-default'
           }`}
           key={index}
         >
           {letter}
-        </p>
+        </div>
       ))}
     </div>
   );

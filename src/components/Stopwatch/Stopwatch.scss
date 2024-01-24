@@ -1,10 +1,14 @@
+$background: #e5e5e5;
+$background_button: #0284c7;
+$title_color: #737373;
+
 .timer-container {
   display: flex;
   flex-direction: row;
   justify-content: justify-around;
-  background-color: #e5e5e5;
+  background-color: $background;
   border-radius: 10px;
-  padding: 2rem 3rem 3rem 3rem;
+  padding: 2rem 5rem 3rem 5rem;
 }
 
 .timer-field {
@@ -16,7 +20,7 @@
   align-items: center;
   line-height: 1.25;
   text-transform: uppercase;
-  width: 5rem;
+  width: 7rem;
 }
 
 .timer-field-time {
@@ -25,16 +29,17 @@
 }
 
 .timer-field-title {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 100;
-  color: #737373;
+  color: $title_color;
 }
 
-.restart-button {
-  width: 4rem;
-  height: 4rem;
+.restart-button,
+.restart-button-rotate {
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 100%;
-  background-color: #3b82f6;
+  background-color: $background_button;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,20 +49,13 @@
   outline: none;
   transform: translate(50%, 50%);
   cursor: pointer;
-  transition: transform 300ms ease-in-out;
 }
 
-.restart-button:hover {
-  transform: translate(50%, 50%) rotate(-180deg);
+.restart-button-rotate {
+  transition: transform 600ms ease-out;
+  transform: translate(50%, 50%) rotate(-720deg);
 }
 
-.timer-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 .container-button-position-wrapper {
   position: relative;
 }
