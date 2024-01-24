@@ -3,7 +3,7 @@ import { useInputContext } from '../../hooks/useInputContext';
 import { useEffect, useState } from 'react';
 
 function LettersBox() {
-  const { currentLetter, input, dispatch } = useInputContext();
+  const { currentLetter, input, dispatch, isGameStarted } = useInputContext();
   const [correctLetters, setCorrectLetters] = useState<string[]>([]);
   const [currentLetterNumber, setCurrentLetterNumber] = useState<number>(0);
   useEffect(() => {
@@ -18,6 +18,14 @@ function LettersBox() {
       dispatch({ type: 'END_GAME' });
     }
   }, [input]);
+
+  useEffect(() => {
+    if (!isGameStarted) {
+      setTimeout(() => {
+        setCorrectLetters([]);
+      }, 100);
+    }
+  }, [isGameStarted]);
 
   const letters: Array<string> = [
     'a',
@@ -56,7 +64,7 @@ function LettersBox() {
         correctLetters.push(currentLetter);
         return 'correct';
       }
-      if (currentLetter !== letters[currentLetterNumber - 1]) {
+      if (currentLetter !== letters[currentLetterNumber - 1] && isGameStarted) {
         return 'mistake';
       }
     }

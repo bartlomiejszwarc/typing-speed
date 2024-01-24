@@ -1,18 +1,8 @@
-.letters-input {
-  color: black;
-  background-color: #e5e5e5d5;
-  margin-top: 1rem;
-  outline: none;
-  border: none;
-  width: calc(50vw - 2rem);
-  font-size: 2rem;
-  letter-spacing: 0.5rem;
-  padding: 0 1rem 0 1rem;
-  border-radius: 10px;
-  box-shadow: 0px 20px 50px 0px black;
-}
-
 .letters-input::placeholder {
   letter-spacing: normal;
   font-size: 1.75rem;
+}
+
+.letters-input {
+  cursor: default;
 }

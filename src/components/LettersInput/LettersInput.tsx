@@ -13,11 +13,11 @@ function LetterInput() {
     }
   }, [input]);
 
-  const handleInputOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputOnChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     dispatch({ type: 'SET_CURRENT_LETTER', payload: e.target.value[e.target.value.length - 1] });
   };
   return (
-    <div style={{ marginBottom: '4rem' }}>
+    <div style={{ opacity: 0 }}>
       <TextareaAutosize
         minRows={3}
         spellCheck={false}
@@ -25,6 +25,7 @@ function LetterInput() {
         value={input}
         className='letters-input'
         autoFocus
+        onBlur={({ target }) => target.focus()}
         placeholder='Type here'
       />
     </div>
