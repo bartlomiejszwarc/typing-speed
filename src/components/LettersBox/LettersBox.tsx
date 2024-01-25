@@ -1,4 +1,4 @@
-import './LettersBox.css';
+import './LettersBox.scss';
 import { useInputContext } from '../../hooks/useInputContext';
 import { useEffect, useState } from 'react';
 
@@ -23,40 +23,40 @@ function LettersBox() {
     if (!isGameStarted) {
       setTimeout(() => {
         setCorrectLetters([]);
-      }, 100);
+      }, 200);
     }
   }, [isGameStarted]);
 
-  const letters: Array<string> = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
-  ];
+  // const letters: Array<string> = [
+  //   'a',
+  //   'b',
+  //   'c',
+  //   'd',
+  //   'e',
+  //   'f',
+  //   'g',
+  //   'h',
+  //   'i',
+  //   'j',
+  //   'k',
+  //   'l',
+  //   'm',
+  //   'n',
+  //   'o',
+  //   'p',
+  //   'q',
+  //   'r',
+  //   's',
+  //   't',
+  //   'u',
+  //   'v',
+  //   'w',
+  //   'x',
+  //   'y',
+  //   'z',
+  // ];
 
-  //const letters: Array<string> = ['a', 'b', 'c'];
+  const letters: Array<string> = ['a', 'b', 'c'];
 
   const checkLetter = (index: number) => {
     if (currentLetter && currentLetterNumber === index) {

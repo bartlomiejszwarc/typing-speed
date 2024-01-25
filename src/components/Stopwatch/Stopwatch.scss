@@ -1,6 +1,6 @@
 $background: #e5e5e5;
-$background_button: #0284c7;
-$title_color: #737373;
+$background-button: #0284c7;
+$title-color: #737373;
 
 .timer-container {
   display: flex;
@@ -31,7 +31,7 @@ $title_color: #737373;
 .timer-field-title {
   font-size: 0.9rem;
   font-weight: 100;
-  color: $title_color;
+  color: $title-color;
 }
 
 .restart-button,
@@ -39,7 +39,7 @@ $title_color: #737373;
   width: 4.5rem;
   height: 4.5rem;
   border-radius: 100%;
-  background-color: $background_button;
+  background-color: $background-button;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
 import { useInputContext } from '../../hooks/useInputContext';
 import { useEffect } from 'react';
-import './LettersInput.css';
+import './LettersInput.scss';
 import { TextareaAutosize } from '@mui/base/TextareaAutosize';
 
 function LetterInput() {

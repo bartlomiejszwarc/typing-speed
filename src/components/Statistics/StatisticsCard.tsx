@@ -1,4 +1,4 @@
-import './Statistics.css';
+import './Statistics.scss';
 import { SvgIconProps } from '@mui/material';
 import { ReactElement } from 'react';
 interface StatisticsProps {

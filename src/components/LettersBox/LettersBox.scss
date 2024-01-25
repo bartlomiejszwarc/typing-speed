@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+$correct: #15803d;
+$default: #e6e6e6;
+$mistake: #7f1d1d;
+$active: #a21caf;
+$font-family: 'Inter', sans-serif;
+
 .letters-container {
   width: 50%;
   height: auto;
@@ -11,45 +18,41 @@
   margin-top: 5rem;
   backdrop-filter: blur(100px);
   cursor: default;
-  border: 3px solid #a3a3a3;
+  border: 3px solid $default;
   padding: 3rem 2rem 3rem 2rem;
   border-radius: 10px;
 }
 
 .letter-default {
-  font-family: 'Inter', sans-serif;
-  color: #e6e6e6;
-  font-size: 2.5rem;
-  padding-right: 5px;
-  padding-left: 5px;
+  color: $default;
   font-weight: 600;
   border-bottom: 2px solid transparent;
 }
 
 .letter-correct {
-  font-family: 'Inter', sans-serif;
-  color: #15803d;
-  font-size: 2.5rem;
-  padding-right: 5px;
-  padding-left: 5px;
+  color: $correct;
   font-weight: 600;
+  border-bottom: 2px solid transparent;
 }
 
 .letter-mistake {
-  font-family: 'Inter', sans-serif;
-  color: #7f1d1d;
-  font-size: 2.5rem;
-  padding-right: 5px;
-  padding-left: 5px;
+  color: $mistake;
   font-weight: 800;
+  border-bottom: 2px solid $mistake;
 }
 
 .letter-active {
-  font-family: 'Inter', sans-serif;
-  color: #a21caf;
+  color: $active;
+  font-weight: 800;
+  border-bottom: 2px solid $active;
+}
+
+.letter-default,
+.letter-active,
+.letter-mistake,
+.letter-correct {
+  font-family: $font-family;
   font-size: 2.5rem;
   padding-right: 5px;
   padding-left: 5px;
-  font-weight: 800;
-  border-bottom: 2px solid #a21caf;
 }

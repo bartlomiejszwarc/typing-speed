@@ -1,5 +1,5 @@
 import StatisticsCard from './StatisticsCard';
-import './Statistics.css';
+import './Statistics.scss';
 import { useInputContext } from '../../hooks/useInputContext';
 import { useState, useEffect } from 'react';
 import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
@@ -27,10 +27,18 @@ function StatisticsContainer() {
       <StatisticsCard
         title='Mistakes'
         value={mistakes || null}
-        icon={<SentimentDissatisfiedIcon fontSize={iconSize} />}
+        icon={<SentimentDissatisfiedIcon fontSize={iconSize} sx={{ color: '#262626' }} />}
       />
-      <StatisticsCard title='Accuracy (%)' value={accuracy * 100 || null} icon={<GpsFixedIcon fontSize={iconSize} />} />
-      <StatisticsCard title='CPM' value={Math.round(charsPerMinute) || null} icon={<SpeedIcon fontSize={iconSize} />} />
+      <StatisticsCard
+        title='Accuracy (%)'
+        value={accuracy * 100 || null}
+        icon={<GpsFixedIcon fontSize={iconSize} sx={{ color: '#262626' }} />}
+      />
+      <StatisticsCard
+        title='CPM'
+        value={Math.round(charsPerMinute) || null}
+        icon={<SpeedIcon fontSize={iconSize} sx={{ color: '#262626' }} />}
+      />
     </div>
   );
 }
