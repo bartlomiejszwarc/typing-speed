@@ -3,6 +3,7 @@ import LettersBox from './components/LettersBox/LettersBox';
 import LetterInput from './components/LettersInput/LettersInput';
 import Stopwatch from './components/Stopwatch/Stopwatch';
 import StatisticsContainer from './components/Statistics/StatisticsContainer';
+import DialogTopScore from './components/DialogTopScore/DialogTopScore';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <LettersBox />
       <LetterInput />
       <StatisticsContainer />
+      <DialogTopScore />
     </div>
   );
 }
