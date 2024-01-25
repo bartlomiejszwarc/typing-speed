@@ -10,10 +10,22 @@ export const inputReducer = (state, action) => {
       return { ...state, input: state.input + action.payload };
     case 'INCREASE_MISTAKES':
       return { ...state, mistakes: state.mistakes + 1 };
+    case 'SET_MINUTES':
+      return { ...state, minutes: action.payload };
     case 'SET_SECONDS':
       return { ...state, seconds: action.payload };
+    case 'SET_MILLISECONDS':
+      return { ...state, milliseconds: action.payload };
     case 'START_GAME':
-      return { ...state, isGameStarted: true, isGameEnded: false, mistakes: 0, seconds: 0 };
+      return {
+        ...state,
+        isGameStarted: true,
+        isGameEnded: false,
+        mistakes: 0,
+        minutes: 0,
+        seconds: 0,
+        milliseconds: 0,
+      };
     case 'END_GAME':
       return { ...state, isGameStarted: false, isGameEnded: true };
     case 'RESET':
@@ -26,7 +38,9 @@ export const InputContextProvider = ({ children }) => {
     currentLetter: null,
     input: '',
     mistakes: 0,
+    minutes: 0,
     seconds: 0,
+    milliseconds: 0,
     isGameStarted: false,
     isGameEnded: false,
   });

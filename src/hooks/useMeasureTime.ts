@@ -7,7 +7,7 @@ export const useMeasureTime = () => {
   const [milliseconds, setMilliseconds] = useState<number>(0);
   const [startTime, setStartTime] = useState<any>(0);
 
-  const { isGameStarted, isGameEnded, input } = useInputContext();
+  const { isGameStarted, isGameEnded, input, dispatch } = useInputContext();
 
   const measureTime = () => {
     useEffect(() => {
@@ -28,12 +28,15 @@ export const useMeasureTime = () => {
       }
 
       if (isGameEnded) {
+        dispatch({ type: 'SET_MINUTES', payload: minutes });
+        dispatch({ type: 'SET_SECONDS', payload: seconds });
+        dispatch({ type: 'SET_MILLISECONDS', payload: milliseconds });
         if (timer !== undefined) {
           clearInterval(timer);
         }
       }
 
-      if (input.length === 0) {
+      if (input?.length === 0) {
         setSeconds(0);
         setMinutes(0);
         setMilliseconds(0);

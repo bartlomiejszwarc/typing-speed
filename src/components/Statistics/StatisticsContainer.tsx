@@ -5,10 +5,12 @@ import { useState, useEffect } from 'react';
 import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
 import SpeedIcon from '@mui/icons-material/Speed';
 import GpsFixedIcon from '@mui/icons-material/GpsFixed';
+import { useSaveData } from '../../hooks/useSaveData';
 function StatisticsContainer() {
-  const { mistakes, input, seconds } = useInputContext();
+  const { mistakes, input, minutes, seconds, milliseconds, isGameEnded } = useInputContext();
   const [accuracy, setAccuracy] = useState<number>(0);
   const [charsPerMinute, setCharsPerMinute] = useState<number>(0);
+  const { saveData } = useSaveData();
 
   const iconSize: any = 'large';
   useEffect(() => {
@@ -21,6 +23,12 @@ function StatisticsContainer() {
       setCharsPerMinute(cpm);
     }
   }, [input, seconds]);
+
+  useEffect(() => {
+    if (isGameEnded && milliseconds > 0) {
+      saveData(minutes, seconds, milliseconds, mistakes, accuracy, charsPerMinute);
+    }
+  }, [isGameEnded, minutes, seconds, milliseconds, mistakes, accuracy, charsPerMinute]);
 
   return (
     <div className='statistics-container'>
