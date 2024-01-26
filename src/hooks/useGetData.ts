@@ -3,6 +3,7 @@ interface IRecord {
   minutes: number;
   seconds: number;
   milliseconds: number;
+  millisecondsTotal: number;
   mistakes: number;
   accuracy: number;
   cpm: number;

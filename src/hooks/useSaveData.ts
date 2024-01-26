@@ -4,6 +4,7 @@ interface IRecord {
   minutes: number;
   seconds: number;
   milliseconds: number;
+  millisecondsTotal: number;
   mistakes: number;
   accuracy: number;
   cpm: number;
@@ -22,6 +23,7 @@ export const useSaveData = () => {
     minutes: number,
     seconds: number,
     milliseconds: number,
+    millisecondsTotal: number,
     mistakes: number,
     accuracy: number,
     cpm: number,
@@ -30,6 +32,7 @@ export const useSaveData = () => {
       minutes,
       seconds,
       milliseconds,
+      millisecondsTotal,
       mistakes,
       accuracy,
       cpm,

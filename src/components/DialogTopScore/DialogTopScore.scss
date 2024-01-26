@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+$title: #737373;
+$font-family: 'Inter', sans-serif;
+.dialog-container {
+  width: 50%;
+  height: 20rem;
+  background-color: white;
+  margin: 2rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 1rem 3rem 1rem;
+}
+
+.titles-container {
+  display: grid;
+  grid-template-columns: 0.5fr repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  & > * {
+    font-family: $font-family;
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    font-size: 0.9rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    justify-content: flex-end;
+    color: $title;
+  }
+}
+
+.score-field-container {
+  display: grid;
+  grid-template-columns: 0.5fr repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  & > * {
+    font-family: $font-family;
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.score-title {
+  font-weight: 100;
+}
+
+.score-field-first-place {
+  font-size: 3rem;
+}
+.score-field-second-place {
+  font-size: 2.75rem;
+}
+.score-field-third-place {
+  font-size: 2.5rem;
+}
+.score-field-other-place {
+}

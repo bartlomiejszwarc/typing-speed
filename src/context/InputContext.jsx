@@ -16,6 +16,8 @@ export const inputReducer = (state, action) => {
       return { ...state, seconds: action.payload };
     case 'SET_MILLISECONDS':
       return { ...state, milliseconds: action.payload };
+    case 'SET_MILLISECONDS_TOTAL':
+      return { ...state, millisecondsTotal: action.payload };
     case 'START_GAME':
       return {
         ...state,
@@ -25,6 +27,7 @@ export const inputReducer = (state, action) => {
         minutes: 0,
         seconds: 0,
         milliseconds: 0,
+        millisecondsTotal: 0,
       };
     case 'END_GAME':
       return { ...state, isGameStarted: false, isGameEnded: true };
@@ -41,6 +44,7 @@ export const InputContextProvider = ({ children }) => {
     minutes: 0,
     seconds: 0,
     milliseconds: 0,
+    millisecondsTotal: 0,
     isGameStarted: false,
     isGameEnded: false,
   });

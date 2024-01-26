@@ -7,7 +7,7 @@ import SpeedIcon from '@mui/icons-material/Speed';
 import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 import { useSaveData } from '../../hooks/useSaveData';
 function StatisticsContainer() {
-  const { mistakes, input, minutes, seconds, milliseconds, isGameEnded } = useInputContext();
+  const { mistakes, input, minutes, seconds, milliseconds, millisecondsTotal, isGameEnded } = useInputContext();
   const [accuracy, setAccuracy] = useState<number>(0);
   const [charsPerMinute, setCharsPerMinute] = useState<number>(0);
   const { saveData } = useSaveData();
@@ -18,7 +18,7 @@ function StatisticsContainer() {
   }, [input, mistakes]);
 
   useEffect(() => {
-    const cpm = (input.length / seconds) * 60;
+    const cpm = Math.floor((input.length / seconds) * 60);
     if (seconds > 0) {
       setCharsPerMinute(cpm);
     }
@@ -26,7 +26,7 @@ function StatisticsContainer() {
 
   useEffect(() => {
     if (isGameEnded && milliseconds > 0) {
-      saveData(minutes, seconds, milliseconds, mistakes, accuracy, charsPerMinute);
+      saveData(minutes, seconds, milliseconds, millisecondsTotal, mistakes, accuracy, charsPerMinute);
     }
   }, [isGameEnded, minutes, seconds, milliseconds, mistakes, accuracy, charsPerMinute]);
 

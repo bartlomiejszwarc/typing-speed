@@ -5,6 +5,7 @@ export const useMeasureTime = () => {
   const [minutes, setMinutes] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(0);
   const [milliseconds, setMilliseconds] = useState<number>(0);
+  const [millisecondsTotal, setMillisecondsTotal] = useState<number>(0);
   const [startTime, setStartTime] = useState<any>(0);
 
   const { isGameStarted, isGameEnded, input, dispatch } = useInputContext();
@@ -24,6 +25,7 @@ export const useMeasureTime = () => {
           setSeconds(Math.floor((millis / 1000) % 60));
           setMinutes(Math.floor((millis / 1000 / 60) % 60));
           setMilliseconds(Math.floor(millis % 1000));
+          setMillisecondsTotal(Math.floor(millis));
         }, 1);
       }
 
@@ -31,6 +33,7 @@ export const useMeasureTime = () => {
         dispatch({ type: 'SET_MINUTES', payload: minutes });
         dispatch({ type: 'SET_SECONDS', payload: seconds });
         dispatch({ type: 'SET_MILLISECONDS', payload: milliseconds });
+        dispatch({ type: 'SET_MILLISECONDS_TOTAL', payload: millisecondsTotal });
         if (timer !== undefined) {
           clearInterval(timer);
         }
@@ -40,6 +43,7 @@ export const useMeasureTime = () => {
         setSeconds(0);
         setMinutes(0);
         setMilliseconds(0);
+        setMillisecondsTotal(0);
         if (timer !== undefined) {
           clearInterval(timer);
         }
@@ -53,5 +57,5 @@ export const useMeasureTime = () => {
     }, [startTime, isGameEnded, input]);
   };
 
-  return { measureTime, minutes, seconds, milliseconds };
+  return { measureTime, minutes, seconds, milliseconds, millisecondsTotal };
 };
