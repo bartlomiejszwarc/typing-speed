@@ -1,23 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-$title: #737373;
+$title: #525252;
 $font-family: 'Inter', sans-serif;
+$titles-background: #e5e5e5;
 .dialog-container {
   width: 50%;
-  height: 20rem;
   background-color: white;
   margin: 2rem 0 2rem 0;
   display: flex;
   flex-direction: column;
-  padding: 5rem 1rem 3rem 1rem;
+  padding: 5rem 0rem 3rem 0rem;
+  border-radius: 15px;
 }
 
 .titles-container {
   display: grid;
-  grid-template-columns: 0.5fr repeat(6, 1fr);
+  grid-template-columns: 0.5fr repeat(5, 1fr) 0.5fr;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  background-color: $titles-background;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   & > * {
     font-family: $font-family;
     padding: 0.5rem 0 0.5rem 0;
@@ -32,15 +35,17 @@ $font-family: 'Inter', sans-serif;
 
 .score-field-container {
   display: grid;
-  grid-template-columns: 0.5fr repeat(6, 1fr);
+  grid-template-columns: 0.5fr repeat(5, 1fr) 0.5fr;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  padding: 0 1rem 0 1rem;
   & > * {
     font-family: $font-family;
-    padding: 0.5rem 0 0.5rem 0;
+    padding: 1rem 0 1rem 0;
     display: flex;
     justify-content: flex-end;
+    font-size: 1rem;
   }
 }
 
@@ -58,4 +63,10 @@ $font-family: 'Inter', sans-serif;
   font-size: 2.5rem;
 }
 .score-field-other-place {
+}
+
+.average-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

@@ -10,6 +10,8 @@ export const inputReducer = (state, action) => {
       return { ...state, input: state.input + action.payload };
     case 'INCREASE_MISTAKES':
       return { ...state, mistakes: state.mistakes + 1 };
+    case 'SET_TEST_LENGTH':
+      return { ...state, testCharsLength: action.payload };
     case 'SET_MINUTES':
       return { ...state, minutes: action.payload };
     case 'SET_SECONDS':
@@ -47,6 +49,7 @@ export const InputContextProvider = ({ children }) => {
     millisecondsTotal: 0,
     isGameStarted: false,
     isGameEnded: false,
+    testCharsLength: 0,
   });
 
   useEffect(() => {}, [state]);

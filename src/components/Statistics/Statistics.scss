@@ -1,4 +1,5 @@
 $title-color: #737373;
+$value-color: #262626;
 $card-background-color: #e5e5e5;
 
 .statistics-container {
@@ -19,6 +20,7 @@ $card-background-color: #e5e5e5;
 
 .statistics-value {
   font-size: 3rem;
+  color: $value-color;
 }
 
 .statistics-title {
@@ -31,4 +33,24 @@ $card-background-color: #e5e5e5;
 .icon {
   width: 30%;
   aspect-ratio: 1/1;
+}
+
+.average-statistic-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0 1rem 0;
+}
+
+.average-statistic-text-value {
+  font-weight: 600;
+  color: $value-color;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.average-statistic-text-title {
+  font-weight: 100;
+  color: $title-color;
+  font-size: 0.7rem;
+  text-transform: uppercase;
 }

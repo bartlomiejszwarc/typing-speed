@@ -2,6 +2,9 @@ import './DialogTopScore.scss';
 import { useGetData } from '../../hooks/useGetData';
 import { useEffect, useState } from 'react';
 import FieldTopScore from './FieldTopScore';
+import StatisticsAverageCard from '../Statistics/StatisticsAverage/StatisticsAverageCard';
+import { useInputContext } from '../../hooks/useInputContext';
+
 interface IRecord {
   minutes: number;
   seconds: number;
@@ -26,6 +29,7 @@ interface IStats {
 
 function DialogTopScore() {
   const { records, getData } = useGetData();
+  const { testCharsLength } = useInputContext();
   const [recordsFromStorage, setRecordsFromStorage] = useState<IRecord[]>([]);
   const [averageStats, setAverageStats] = useState<IAverageStats>({
     averageMistakes: 0,
@@ -102,6 +106,23 @@ function DialogTopScore() {
 
   return (
     <div className='dialog-container'>
+      <div className='average-container'>
+        <StatisticsAverageCard
+          text={'Average mistakes'}
+          value={averageStats.averageMistakes}
+          percentage={averageStats.averageMistakes / testCharsLength}
+        />
+        <StatisticsAverageCard
+          text={'Average accuracy (%)'}
+          value={averageStats.averageAccuracy}
+          percentage={averageStats.averageAccuracy / 100}
+        />
+        <StatisticsAverageCard
+          text={'Average cpm'}
+          value={averageStats.averageCpm}
+          percentage={averageStats.averageCpm / 1000}
+        />
+      </div>
       <Titles />
       {recordsFromStorage.map((record, key) => (
         <FieldTopScore
@@ -110,8 +131,9 @@ function DialogTopScore() {
           seconds={record.seconds}
           milliseconds={record.milliseconds}
           mistakes={record.mistakes}
-          accuracy={record.accuracy * 100}
+          accuracy={Math.floor(record.accuracy * 100)}
           cpm={record.cpm}
+          totalRecords={recordsFromStorage.length}
         />
       ))}
     </div>

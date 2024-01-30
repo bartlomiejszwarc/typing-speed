@@ -12,7 +12,7 @@ function App() {
       <LettersBox />
       <LetterInput />
       <StatisticsContainer />
-      <DialogTopScore />
+      {/* <DialogTopScore /> */}
     </div>
   );
 }

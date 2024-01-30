@@ -1,6 +1,6 @@
 import './DialogTopScore.scss';
 import { useState, useEffect } from 'react';
-
+import StatisticsAverageCard from '../Statistics/StatisticsAverage/StatisticsAverageCard';
 interface IFieldProps {
   place: number;
   minutes: number;
@@ -9,8 +9,9 @@ interface IFieldProps {
   mistakes: number;
   accuracy: number;
   cpm: number;
+  totalRecords: number;
 }
-function FieldTopScore({ place, minutes, seconds, milliseconds, mistakes, accuracy, cpm }: IFieldProps) {
+function FieldTopScore({ place, minutes, seconds, milliseconds, mistakes, accuracy, cpm, totalRecords }: IFieldProps) {
   const [placeClass, setPlaceClass] = useState<string>('');
   useEffect(() => {
     switch (place) {
@@ -40,7 +41,17 @@ function FieldTopScore({ place, minutes, seconds, milliseconds, mistakes, accura
           <span>{accuracy}</span>
           <span>{cpm > 0 ? cpm : 'N/A'}</span>
         </div>
-        {place !== 4 && <div style={{ height: '1px', width: '100%', backgroundColor: '#d4d4d4' }}></div>}
+        {place !== totalRecords - 1 && (
+          <div
+            style={{
+              height: '1px',
+              width: '100%',
+              backgroundColor: '#d4d4d4',
+              marginTop: '3px',
+              marginBottom: '3px',
+            }}
+          ></div>
+        )}
       </>
     );
   };

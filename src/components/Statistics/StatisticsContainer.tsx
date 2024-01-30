@@ -22,7 +22,7 @@ function StatisticsContainer() {
     if (seconds > 0) {
       setCharsPerMinute(cpm);
     }
-  }, [input, seconds]);
+  }, [input]);
 
   useEffect(() => {
     if (isGameEnded && milliseconds > 0) {

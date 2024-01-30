@@ -6,6 +6,7 @@ function LettersBox() {
   const { currentLetter, input, dispatch, isGameStarted } = useInputContext();
   const [correctLetters, setCorrectLetters] = useState<string[]>([]);
   const [currentLetterNumber, setCurrentLetterNumber] = useState<number>(0);
+  const [testLetters, setTestLetters] = useState<string[]>([]);
   useEffect(() => {
     if (currentLetter?.length > 0 && currentLetter === letters[input.length])
       dispatch({ type: 'ADD_LETTER_TO_INPUT', payload: currentLetter });
@@ -27,36 +28,45 @@ function LettersBox() {
     }
   }, [isGameStarted]);
 
-  // const letters: Array<string> = [
-  //   'a',
-  //   'b',
-  //   'c',
-  //   'd',
-  //   'e',
-  //   'f',
-  //   'g',
-  //   'h',
-  //   'i',
-  //   'j',
-  //   'k',
-  //   'l',
-  //   'm',
-  //   'n',
-  //   'o',
-  //   'p',
-  //   'q',
-  //   'r',
-  //   's',
-  //   't',
-  //   'u',
-  //   'v',
-  //   'w',
-  //   'x',
-  //   'y',
-  //   'z',
-  // ];
+  const letters: Array<string> = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z',
+  ];
 
-  const letters: Array<string> = ['a', 'b', 'c'];
+  //const letters: Array<string> = ['a', 'b', 'c'];
+  //
+  //setTestLetters(letters);
+  useEffect(() => {
+    setTestLetters(letters);
+  }, []);
+
+  useEffect(() => {
+    if (testLetters.length > 0) dispatch({ type: 'SET_TEST_LENGTH', payload: letters?.length });
+  }, [testLetters]);
 
   const checkLetter = (index: number) => {
     if (currentLetter && currentLetterNumber === index) {
