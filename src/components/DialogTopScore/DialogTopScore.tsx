@@ -164,7 +164,7 @@ function DialogTopScore() {
     <div className='dialog-container'>
       <StatisticsAverageContaier />
 
-      <Titles />
+      {recordsFromStorage.length > 0 && <Titles />}
       {recordsFromStorage.map((record, key) => (
         <FieldTopScore
           place={key}
@@ -179,7 +179,7 @@ function DialogTopScore() {
         />
       ))}
       <CloseDialogButton />
-      <ClearStatsButton />
+      {recordsFromStorage.length > 0 && <ClearStatsButton />}
     </div>
   );
 }
