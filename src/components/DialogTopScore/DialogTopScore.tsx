@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import FieldTopScore from './FieldTopScore';
 import StatisticsAverageCard from '../Statistics/StatisticsAverage/StatisticsAverageCard';
 import { useInputContext } from '../../hooks/useInputContext';
+import { useDialogContext } from '../../hooks/useDialogContext';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface IRecord {
   minutes: number;
@@ -30,6 +32,7 @@ interface IStats {
 function DialogTopScore() {
   const { records, getData } = useGetData();
   const { testCharsLength } = useInputContext();
+  const { dispatch } = useDialogContext();
   const [recordsFromStorage, setRecordsFromStorage] = useState<IRecord[]>([]);
   const [averageStats, setAverageStats] = useState<IAverageStats>({
     averageMistakes: 0,
@@ -90,6 +93,10 @@ function DialogTopScore() {
     getTotalStats(stats);
   }, [records]);
 
+  const handleOnClick = () => {
+    dispatch({ type: 'SET_IS_TOPSCORE_DIALOG_OPEN', payload: false });
+  };
+
   const Titles = () => {
     return (
       <div className='titles-container'>
@@ -134,8 +141,12 @@ function DialogTopScore() {
           accuracy={Math.floor(record.accuracy * 100)}
           cpm={record.cpm}
           totalRecords={recordsFromStorage.length}
+          key={key}
         />
       ))}
+      <button className='close-dialog-button' onClick={handleOnClick}>
+        <CloseIcon sx={{ color: '#404040' }} />
+      </button>
     </div>
   );
 }

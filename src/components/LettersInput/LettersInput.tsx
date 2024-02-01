@@ -26,7 +26,7 @@ function LetterInput() {
         value={input}
         className='letters-input'
         autoFocus
-        onBlur={({ target }) => target.focus()}
+        onBlur={({ target }) => setTimeout(() => target.focus(), 0)}
         placeholder='Type here'
       />
     </div>

@@ -3,14 +3,37 @@
 $title: #525252;
 $font-family: 'Inter', sans-serif;
 $titles-background: #e5e5e5;
+$button-background: #0284c7;
+$button-background-second: #075985;
+.open-dialog-button {
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: $button-background;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  border-bottom: 4px solid $button-background-second;
+  border-right: 3px solid $button-background-second;
+}
+.close-dialog-button {
+  position: absolute;
+  right: 1.25rem;
+  top: 1.25rem;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
 .dialog-container {
-  width: 50%;
-  background-color: white;
-  margin: 2rem 0 2rem 0;
+  width: 100%;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   padding: 5rem 0rem 3rem 0rem;
   border-radius: 15px;
+  position: relative;
 }
 
 .titles-container {
