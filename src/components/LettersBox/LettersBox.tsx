@@ -18,6 +18,7 @@ function LettersBox() {
     if (input.length === letters.length) {
       dispatch({ type: 'END_GAME' });
     }
+    if (input.length === 0) setCorrectLetters([]);
   }, [input]);
 
   useEffect(() => {
@@ -57,9 +58,6 @@ function LettersBox() {
     'z',
   ];
 
-  //const letters: Array<string> = ['a', 'b', 'c'];
-  //
-  //setTestLetters(letters);
   useEffect(() => {
     setTestLetters(letters);
   }, []);
@@ -81,7 +79,6 @@ function LettersBox() {
         return 'active';
       }
     }
-    //return 'default';
   };
 
   useEffect(() => {

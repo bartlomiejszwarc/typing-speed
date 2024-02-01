@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import GaugeChart from 'react-gauge-chart';
 import './../Statistics.scss';
 interface IProps {

@@ -98,21 +98,18 @@ function DialogTopScore() {
   };
 
   const Titles = () => {
+    const titles = ['Place', 'Minutes', 'Seconds', 'Milliseconds', 'Mistakes', 'Accuracy (%)', 'CPM'];
     return (
       <div className='titles-container'>
-        <span>Place</span>
-        <span>Minutes</span>
-        <span>Seconds</span>
-        <span>Milliseconds</span>
-        <span>Mistakes</span>
-        <span>Accuracy (%)</span>
-        <span>CPM</span>
+        {titles.map((title, index) => (
+          <span key={index}>{title}</span>
+        ))}
       </div>
     );
   };
 
-  return (
-    <div className='dialog-container'>
+  const StatisticsAverageContaier = () => {
+    return (
       <div className='average-container'>
         <StatisticsAverageCard
           text={'Average mistakes'}
@@ -130,6 +127,20 @@ function DialogTopScore() {
           percentage={averageStats.averageCpm / 1000}
         />
       </div>
+    );
+  };
+
+  const CloseDialogButton = () => {
+    return (
+      <button className='close-dialog-button' onClick={handleOnClick}>
+        <CloseIcon sx={{ color: '#404040' }} />
+      </button>
+    );
+  };
+
+  return (
+    <div className='dialog-container'>
+      <StatisticsAverageContaier />
       <Titles />
       {recordsFromStorage.map((record, key) => (
         <FieldTopScore
@@ -144,9 +155,7 @@ function DialogTopScore() {
           key={key}
         />
       ))}
-      <button className='close-dialog-button' onClick={handleOnClick}>
-        <CloseIcon sx={{ color: '#404040' }} />
-      </button>
+      <CloseDialogButton />
     </div>
   );
 }

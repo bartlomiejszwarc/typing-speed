@@ -1,6 +1,4 @@
 import './DialogTopScore.scss';
-import { useState, useEffect } from 'react';
-import StatisticsAverageCard from '../Statistics/StatisticsAverage/StatisticsAverageCard';
 interface IFieldProps {
   place: number;
   minutes: number;
@@ -12,53 +10,32 @@ interface IFieldProps {
   totalRecords: number;
 }
 function FieldTopScore({ place, minutes, seconds, milliseconds, mistakes, accuracy, cpm, totalRecords }: IFieldProps) {
-  const [placeClass, setPlaceClass] = useState<string>('');
-  useEffect(() => {
-    switch (place) {
-      case 0:
-        setPlaceClass('score-field-first-place');
-        return;
-      case 1:
-        setPlaceClass('score-field-second-place');
-        return;
-      case 2:
-        setPlaceClass('score-field-third-place');
-        return;
-      default:
-        break;
-    }
-  }, []);
-
+  const Divider = () => {
+    return (
+      <div
+        style={{
+          height: '1px',
+          width: '100%',
+          backgroundColor: '#d4d4d4',
+          marginTop: '3px',
+          marginBottom: '3px',
+        }}
+      ></div>
+    );
+  };
   const ScoreFields = () => {
+    const fields = [place + 1, minutes, seconds, milliseconds, mistakes, accuracy, cpm > 0 ? cpm : 'N/A'];
     return (
       <>
         <div className='score-field-container'>
-          <span className='score-title'>{place + 1}</span>
-          <span>{minutes}</span>
-          <span>{seconds}</span>
-          <span>{milliseconds}</span>
-          <span>{mistakes}</span>
-          <span>{accuracy}</span>
-          <span>{cpm > 0 ? cpm : 'N/A'}</span>
+          {fields.map((field, index) => (
+            <span key={index}>{field}</span>
+          ))}
         </div>
-        {place !== totalRecords - 1 && (
-          <div
-            style={{
-              height: '1px',
-              width: '100%',
-              backgroundColor: '#d4d4d4',
-              marginTop: '3px',
-              marginBottom: '3px',
-            }}
-          ></div>
-        )}
+        {place !== totalRecords - 1 && <Divider />}
       </>
     );
   };
-  return (
-    <>
-      <ScoreFields />
-    </>
-  );
+  return <ScoreFields />;
 }
 export default FieldTopScore;

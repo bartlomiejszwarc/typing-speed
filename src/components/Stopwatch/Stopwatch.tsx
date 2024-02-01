@@ -1,4 +1,4 @@
-import { useInputContext } from './../../hooks/useInputContext';
+import { useInputContext } from '../../hooks/useInputContext';
 import CachedIcon from '@mui/icons-material/Cached';
 import { useMeasureTime } from './../../hooks/useMeasureTime';
 import { useEffect, useState } from 'react';
@@ -27,11 +27,17 @@ function Stopwatch() {
       <div className='container-button-position-wrapper'>
         <div className='timer-container'>
           <div className='timer-field'>
-            <span className='timer-field-time'>{Math.round(minutes)}</span>
+            <span className='timer-field-time'>
+              {Array.from({ length: 2 - minutes.toString().length }, () => 0)}
+              {Math.round(minutes)}
+            </span>
             <span className='timer-field-title'>minutes</span>
           </div>
           <div className='timer-field'>
-            <span className='timer-field-time'>{Math.round(seconds)}</span>
+            <span className='timer-field-time'>
+              {Array.from({ length: 2 - seconds.toString().length }, () => 0)}
+              {Math.round(seconds)}
+            </span>
             <span className='timer-field-title'>seconds</span>
           </div>
           <div className='timer-field'>
