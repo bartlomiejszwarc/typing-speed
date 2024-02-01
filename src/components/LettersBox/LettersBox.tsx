@@ -79,6 +79,11 @@ function LettersBox() {
         return 'active';
       }
     }
+    if (input.length === 0 && index === 0) {
+      if (currentLetterNumber === input.length) {
+        return 'active';
+      }
+    }
   };
 
   useEffect(() => {

@@ -6,3 +6,5 @@ export const useDialogContext = () => {
   if (!context) throw Error('useDialogContext must be used inside DialogContextProvider');
   return context;
 };
+
+export default useDialogContext;

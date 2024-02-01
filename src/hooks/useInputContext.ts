@@ -6,3 +6,5 @@ export const useInputContext = () => {
   if (!context) throw Error('useInputContext must be used inside InputContextProvider');
   return context;
 };
+
+export default useInputContext;

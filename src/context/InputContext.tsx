@@ -1,8 +1,34 @@
 import { createContext, useReducer } from 'react';
-import { useEffect } from 'react';
-export const InputContext = createContext();
+import { useEffect, ReactNode } from 'react';
 
-export const inputReducer = (state, action) => {
+interface Props {
+  children: ReactNode;
+}
+
+interface IInputContext {
+  currentLetter: string | null;
+  input: string;
+  mistakes: number;
+  minutes: number;
+  seconds: number;
+  milliseconds: number;
+  isGameStarted: boolean;
+  isGameEnded: boolean;
+  testCharsLength: 0;
+}
+
+interface IInputAction {
+  type: string;
+  payload: any;
+}
+
+interface IInputContextState extends IInputContext {
+  dispatch: React.Dispatch<IInputAction>;
+}
+
+export const InputContext = createContext<IInputContextState | null>(null);
+
+export const inputReducer = (state: IInputContext, action: IInputAction) => {
   switch (action.type) {
     case 'SET_CURRENT_LETTER':
       return { ...state, currentLetter: action.payload };
@@ -35,10 +61,12 @@ export const inputReducer = (state, action) => {
       return { ...state, isGameStarted: false, isGameEnded: true };
     case 'RESET':
       return { ...state, isGameStarted: false, isGameEnded: false, input: '', mistakes: 0 };
+    default:
+      return state;
   }
 };
 
-export const InputContextProvider = ({ children }) => {
+export const InputContextProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(inputReducer, {
     currentLetter: null,
     input: '',
