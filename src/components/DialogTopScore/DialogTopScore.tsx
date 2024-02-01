@@ -6,6 +6,7 @@ import StatisticsAverageCard from '../Statistics/StatisticsAverage/StatisticsAve
 import { useInputContext } from '../../hooks/useInputContext';
 import { useDialogContext } from '../../hooks/useDialogContext';
 import CloseIcon from '@mui/icons-material/Close';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 interface IRecord {
   minutes: number;
@@ -138,9 +139,31 @@ function DialogTopScore() {
     );
   };
 
+  const ClearStatsButton = () => {
+    const resetStats = () => {
+      dispatch({ type: 'CLEAR_SCORES', payload: true });
+    };
+    return (
+      <div
+        style={{
+          display: 'flex',
+          width: '100%',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }}
+      >
+        <button className='clear-stats-container' onClick={resetStats}>
+          <DeleteForeverIcon sx={{ color: '#e5e5e5' }} />
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div className='dialog-container'>
       <StatisticsAverageContaier />
+
       <Titles />
       {recordsFromStorage.map((record, key) => (
         <FieldTopScore
@@ -156,6 +179,7 @@ function DialogTopScore() {
         />
       ))}
       <CloseDialogButton />
+      <ClearStatsButton />
     </div>
   );
 }

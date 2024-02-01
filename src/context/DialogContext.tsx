@@ -5,6 +5,7 @@ interface Props {
 }
 interface IDialogContext {
   topScoresDialogOpen: boolean;
+  clearScores: boolean;
 }
 
 interface IDialogAction {
@@ -21,7 +22,8 @@ export const dialogReducer = (state: IDialogContext, action: IDialogAction): IDi
   switch (action.type) {
     case 'SET_IS_TOPSCORE_DIALOG_OPEN':
       return { ...state, topScoresDialogOpen: action.payload };
-
+    case 'CLEAR_SCORES':
+      return { ...state, clearScores: action.payload };
     default:
       return state;
   }
@@ -30,6 +32,7 @@ export const dialogReducer = (state: IDialogContext, action: IDialogAction): IDi
 export const DialogContextProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(dialogReducer, {
     topScoresDialogOpen: false,
+    clearScores: false,
   });
 
   useEffect(() => {}, [state]);

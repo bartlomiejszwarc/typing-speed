@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import useDialogContext from './useDialogContext';
 interface IRecord {
   minutes: number;
   seconds: number;
@@ -10,6 +11,15 @@ interface IRecord {
 }
 export const useGetData = () => {
   const [records, setRecords] = useState<IRecord[]>([]);
+  const { clearScores, dispatch } = useDialogContext();
+
+  useEffect(() => {
+    if (clearScores) {
+      localStorage.removeItem('records');
+      setRecords([]);
+      dispatch({ type: 'CLEAR_SCORES', payload: false });
+    }
+  }, [clearScores]);
 
   const getData = () => {
     const recordsFromLocalStorage = localStorage.getItem('records');

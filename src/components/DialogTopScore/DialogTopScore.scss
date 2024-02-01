@@ -5,6 +5,8 @@ $font-family: 'Inter', sans-serif;
 $titles-background: #e5e5e5;
 $button-background: #0284c7;
 $button-background-second: #075985;
+$clear-stats-background: #991b1b;
+$clear-stats-button: #737373;
 .open-dialog-button {
   width: 2.75rem;
   height: 2.75rem;
@@ -24,6 +26,27 @@ $button-background-second: #075985;
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+.clear-stats-container {
+  background-color: $clear-stats-background;
+  border-radius: 100%;
+  width: 2.6rem;
+  height: 2.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 1rem;
+  outline: none;
+  border: none;
+}
+.clear-stats-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-family: $font-family;
+  color: $clear-stats-button;
 }
 
 .dialog-container {

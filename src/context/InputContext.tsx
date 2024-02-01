@@ -14,7 +14,7 @@ interface IInputContext {
   milliseconds: number;
   isGameStarted: boolean;
   isGameEnded: boolean;
-  testCharsLength: 0;
+  testCharsLength: number;
 }
 
 interface IInputAction {
