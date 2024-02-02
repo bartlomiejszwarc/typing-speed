@@ -1,9 +1,15 @@
 $title-color: #737373;
 $value-color: #262626;
 $card-background-color: #e5e5e5;
+$layout-breakpoint-small: 520px;
+$layout-breakpoint-medium: 900px;
 
 .statistics-container {
   display: flex;
+  gap: 2rem;
+  @media (max-width: $layout-breakpoint-medium) {
+    gap: 1rem;
+  }
 }
 
 .statistics-card {
@@ -11,16 +17,29 @@ $card-background-color: #e5e5e5;
   height: 10rem;
   border-radius: 10px;
   background-color: $card-background-color;
-  margin: 0 2rem 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: $layout-breakpoint-medium) {
+    width: 10rem;
+    height: 8rem;
+  }
+  @media (max-width: $layout-breakpoint-small) {
+    width: 6.5rem;
+    height: 8rem;
+  }
 }
 
 .statistics-value {
   font-size: 3rem;
   color: $value-color;
+  @media (max-width: $layout-breakpoint-medium) {
+    font-size: 2rem;
+  }
+  @media (max-width: $layout-breakpoint-small) {
+    font-size: 1.2rem;
+  }
 }
 
 .statistics-title {
@@ -28,11 +47,9 @@ $card-background-color: #e5e5e5;
   text-transform: uppercase;
   color: $title-color;
   font-weight: 100;
-}
-
-.icon {
-  width: 30%;
-  aspect-ratio: 1/1;
+  @media (max-width: $layout-breakpoint-small) {
+    font-size: 0.7rem;
+  }
 }
 
 .average-statistic-container {
@@ -40,6 +57,9 @@ $card-background-color: #e5e5e5;
   flex-direction: column;
   align-items: center;
   padding: 1rem 0 1rem 0;
+  @media (max-width: $layout-breakpoint-medium) {
+    width: 50%;
+  }
 }
 
 .average-statistic-text-value {

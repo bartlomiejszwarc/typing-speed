@@ -13,7 +13,10 @@ function Stopwatch() {
   const handleOnClick = () => {
     setButtonStyle('restart-button-rotate');
 
-    dispatch({ type: 'RESET' });
+    dispatch({
+      type: 'RESET',
+      payload: undefined,
+    });
     setTimeout(() => {
       setButtonStyle('restart-button');
     }, 1000);
@@ -23,34 +26,32 @@ function Stopwatch() {
   }, [seconds]);
 
   return (
-    <div className='timer-wrapper'>
-      <div className='container-button-position-wrapper'>
-        <div className='timer-container'>
-          <div className='timer-field'>
-            <span className='timer-field-time'>
-              {Array.from({ length: 2 - minutes.toString().length }, () => 0)}
-              {Math.round(minutes)}
-            </span>
-            <span className='timer-field-title'>minutes</span>
-          </div>
-          <div className='timer-field'>
-            <span className='timer-field-time'>
-              {Array.from({ length: 2 - seconds.toString().length }, () => 0)}
-              {Math.round(seconds)}
-            </span>
-            <span className='timer-field-title'>seconds</span>
-          </div>
-          <div className='timer-field'>
-            <span className='timer-field-time'>
-              {Array.from({ length: 3 - milliseconds.toString().length }, () => 0)}
-              {Math.round(milliseconds)}
-            </span>
-            <span className='timer-field-title'>milliseconds</span>
-          </div>
+    <div className='container-button-position-wrapper'>
+      <div className='timer-container'>
+        <div className='timer-field'>
+          <span className='timer-field-time'>
+            {Array.from({ length: 2 - minutes.toString().length }, () => 0)}
+            {Math.round(minutes)}
+          </span>
+          <span className='timer-field-title'>minutes</span>
         </div>
-        <div className={`${buttonStyle}`} onClick={handleOnClick}>
-          <CachedIcon sx={{ color: 'white', fontSize: 36 }} />
+        <div className='timer-field'>
+          <span className='timer-field-time'>
+            {Array.from({ length: 2 - seconds.toString().length }, () => 0)}
+            {Math.round(seconds)}
+          </span>
+          <span className='timer-field-title'>seconds</span>
         </div>
+        <div className='timer-field'>
+          <span className='timer-field-time'>
+            {Array.from({ length: 3 - milliseconds.toString().length }, () => 0)}
+            {Math.round(milliseconds)}
+          </span>
+          <span className='timer-field-title'>milliseconds</span>
+        </div>
+      </div>
+      <div className={`${buttonStyle}`} onClick={handleOnClick}>
+        <CachedIcon sx={{ color: 'white', fontSize: 36 }} />
       </div>
     </div>
   );

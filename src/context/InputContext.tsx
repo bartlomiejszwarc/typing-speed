@@ -12,6 +12,7 @@ interface IInputContext {
   minutes: number;
   seconds: number;
   milliseconds: number;
+  millisecondsTotal: number;
   isGameStarted: boolean;
   isGameEnded: boolean;
   testCharsLength: number;

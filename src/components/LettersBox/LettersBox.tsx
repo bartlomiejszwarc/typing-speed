@@ -8,15 +8,23 @@ function LettersBox() {
   const [currentLetterNumber, setCurrentLetterNumber] = useState<number>(0);
   const [testLetters, setTestLetters] = useState<string[]>([]);
   useEffect(() => {
-    if (currentLetter?.length > 0 && currentLetter === letters[input.length])
-      dispatch({ type: 'ADD_LETTER_TO_INPUT', payload: currentLetter });
-    if (currentLetter?.length > 0 && currentLetter !== letters[input.length] && input.length > 0)
-      dispatch({ type: 'INCREASE_MISTAKES' });
+    try {
+      if (currentLetter!.length > 0 && currentLetter === letters[input!.length])
+        dispatch({ type: 'ADD_LETTER_TO_INPUT', payload: currentLetter });
+      if (currentLetter!.length > 0 && currentLetter !== letters[input!.length] && input!.length > 0)
+        dispatch({
+          type: 'INCREASE_MISTAKES',
+          payload: undefined,
+        });
+    } catch (e) {}
   }, [currentLetter]);
 
   useEffect(() => {
     if (input.length === letters.length) {
-      dispatch({ type: 'END_GAME' });
+      dispatch({
+        type: 'END_GAME',
+        payload: undefined,
+      });
     }
     if (input.length === 0) setCorrectLetters([]);
   }, [input]);

@@ -54,5 +54,5 @@ export const useSaveData = () => {
       return updatedRecords;
     });
   };
-  return { saveData };
+  return { saveData, records };
 };

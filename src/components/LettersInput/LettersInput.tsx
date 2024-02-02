@@ -9,12 +9,19 @@ function LetterInput() {
 
   useEffect(() => {
     if (input.length > 0 && !isGameEnded && !isGameStarted) {
-      dispatch({ type: 'START_GAME' });
+      dispatch({
+        type: 'START_GAME',
+        payload: undefined,
+      });
     }
   }, [input]);
 
   const handleInputOnChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    if (isGameEnded) dispatch({ type: 'RESET' });
+    if (isGameEnded)
+      dispatch({
+        type: 'RESET',
+        payload: undefined,
+      });
     dispatch({ type: 'SET_CURRENT_LETTER', payload: e.target.value[e.target.value.length - 1].toLowerCase() });
   };
   return (
