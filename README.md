@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+## Overview 
+This web application is designed to help you improve your typing speed by practicing typing the alphabet in order. <br>
+<b>Written in React (TypeScript) </b>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![typing](https://github.com/bartlomiejszwarc/typing-speed/assets/86133933/fb7bc2e8-2ade-49d0-b9fd-48d43853d7c5)
 
-Currently, two official plugins are available:
+## Features
+### Typing test
+- Practice typing the alphabet in sequential order
+- No need to search for input - just start typing
+- Each letter has color that indicates its state:
+  - ![#ea580c](https://placehold.co/15x15/ea580c/ea580c.png) active 
+  -  ![#15803d](https://placehold.co/15x15/15803d/15803d.png) correct
+  -  ![#7f1d1d](https://placehold.co/15x15/7f1d1d/7f1d1d.png) mistake
+- To start a new test after finishing previous one, simply start typing again
+### Real-time statistics
+- There are three statistics available - mistakes, accuracy and characters per minute, which are real-time calculated
+- Statistics reset after finishing each test (or after clicking restart button)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+### Stopwatch
+- Track elapsed time via available stopwatch
+- Begin new typing test whenever you want by pressing restart button
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![refreshing](https://github.com/bartlomiejszwarc/typing-speed/assets/86133933/f41a58d5-703f-4d4a-8b69-91d72accda3c) <br>
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Top scores and average statistics
+- User is allowed to:
+  - See their personal five best scores among all attempts 
+  - Check average statistics (mistakes, accuracy and CPM) calculated from all stored records
+  - Delete all previous records
+  
+![deleting](https://github.com/bartlomiejszwarc/typing-speed/assets/86133933/6d9fdb7f-791a-43e6-aecd-00763a0c3b9f)
+
+### Credits
+- Gauge chart: https://github.com/Martin36/react-gauge-chart
