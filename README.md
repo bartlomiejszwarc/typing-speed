@@ -2,6 +2,8 @@
 This web application is designed to help you improve your typing speed by practicing typing the alphabet in order. <br>
 <b>Written in React (TypeScript) </b>
 
+https://speedrun-the-alphabet.netlify.app/
+
 ![typing](https://github.com/bartlomiejszwarc/typing-speed/assets/86133933/fb7bc2e8-2ade-49d0-b9fd-48d43853d7c5)
 
 ## Features
